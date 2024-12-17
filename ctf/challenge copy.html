@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>CalebC0des</title>
+    <link rel="icon" type="image/x-icon" href="..\assets\img\baddoglogo.svg" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="..\css\styles.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="..\index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Problems</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" id="score">Score:0/4</a></li> 
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="mastheadnew">
+        <div class="container d-flex h-100 align-items-center">
+            <!-- <div class="mx-auto text-center">
+                <h1 class="mx-auto my-0 text-uppercase">Caleb Afework</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">Security Engineer / Web Developer / Audio Engineer </h2>
+                <a class="btn btn-primary js-scroll-trigger" href="#about">More</a>
+            </div> -->
+        </div>
+    </header>
+    <!-- About-->
+    <section class="about-section text-center" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="text-white mb-4">HELP!!</h1>
+                    <h5 class="text-white-50">Calling all cyber sleuths! My site keeps getting pwned by sneaky
+                         hackers—take a look around this page, uncover the vulnerabilities, and help me patch up the chaos!
+                    </h5>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Projects-->
+    <section class="projects-section bg-light" id="projects">
+        <div class="container">
+            <!-- Featured Project Row -->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5 challenge" id="challenge-xss">
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Problem One</h4>
+                        <p class="text-black-50 mb-0">
+                            Type something into the box,
+                            What shows up might seem plain.
+                            But add some code, just a twist,
+                            And watch it play a trick again!
+                            Hint: Try adding something that runs code, not just text.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-7">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 col-lg-8 mx-auto text-center">
+                                <form id="xss-form" class="form-inline d-flex">
+                                    <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="xss-input" type="text" placeholder="Your comment">
+                                    <button class="btn btn-primary mx-auto" type="submit">Submit</button>
+                                </form>
+                                <!-- Feedback Output -->
+                                <p id="xss-output" class="text-black-50 mt-3"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- SQL Injection Challenge -->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5 challenge" id="challenge-sql">
+                <div class="col-xl-8 col-lg-7">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 col-lg-8 mx-auto text-center">
+                                <form id="sql-form" class="form-inline d-flex">
+                                    <input class="form-control flex-fill mr-2 mb-3 mb-sm-0" id="sql-username" type="text" placeholder="Username">
+                                    <input class="form-control flex-fill mr-2 mb-3 mb-sm-0" id="sql-password" type="password" placeholder="Password">
+                                    <button class="btn btn-primary mx-auto" type="submit">Login</button>
+                                </form>
+                                <!-- Feedback Output -->
+                                <p id="sql-output" class="text-black-50 mt-3"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Problem Two (Simulated)</h4>
+                        <p class="text-black-50 mb-0">
+                            The login asks for a name and a key,
+                            But what if you’re clever with what they see?
+                            A little trick, a clever phrase,
+                            Can make the system give you its ways.
+                            Hint: Try using a special phrase that tricks the database.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Clickjacking Challenge -->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5 challenge" id="challenge-clickjacking">
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Problem Three</h4>
+                        <p class="text-black-50 mb-0">
+                            This button seems easy, just give it a tap,
+                            But is there more hidden beneath this trap?
+                            Look closely and see what’s tied to the click,
+                            It might do something else, and that’s the trick!
+                            Hint: Think about what might happen if a button isn't what it seems.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-7 text-center">
+                    <div style="position: relative;">
+                        <iframe src="about:blank" style="opacity: 0.01; pointer-events: none; width: 300px; height: 100px; border: none; position: absolute;"></iframe>
+                        <button id="clickjacking-button" class="btn btn-primary">Click Me</button>
+                        <!-- Feedback Output -->
+                        <p id="clickjacking-output" class="text-black-50 mt-3"></p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Open Redirect Challenge -->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5 challenge" id="challenge-redirect">
+                <div class="col-xl-8 col-lg-7 text-center">
+                    <!-- Redirect Button -->
+                    <button id="redirect-button" class="btn btn-primary">Redirect me!</button>
+                    <!-- Feedback Output -->
+                    <p id="redirect-output" class="text-black-50 mt-3"></p>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Problem Four</h4>
+                        <p class="text-black-50 mb-0">
+                            A link leads you to where it should go,
+                            But what if it’s tricked, and you don’t know?
+                            Check where it sends you, be on guard,
+                            A small change can lead you somewhere bizarre.
+                            Hint: Pay attention to where the link actually goes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+            <!-- Project One Row-->
+            <!-- <h2>Projects</h2>
+            <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                <div class="col-lg-6"><img class="img-fluid" src="assets/img/apollo.png" alt="apollo photo" /></div>
+                <div class="col-lg-6">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left">
+                                <h4 class="text-white">Apollo</h4>
+                                <br class="mb-0 text-white-50">A fullstack application that creates a playlist based off
+                                your mood.
+                                My goal is to later implement the Spotify API to dynamically create playlist as opposed
+                                to pre-built playlist.
+                                <br>Technologies: React, Express, PostgreSQL, Node, Docker, IMB Tone Analyzer API<br>
+                                <a href="https://github.com/calebafework/apollo-frontend">Frontend</a> <br>
+                                <a href="https://github.com/calebafework/Apollo">Backend</a>
+                                </p>
+                                <hr class="d-none d-lg-block mb-0 ml-0" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- Project Two Row-->
+            <!-- <div class="row justify-content-center no-gutters">
+                <div class="col-lg-6"><img class="img-fluid" src="assets/img/404screenshot.png"
+                        alt="404AnswerNotFound photo" /></div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-right">
+                                <h4 class="text-white">404AnswerNotFound</h4>
+                                <br class="mb-0 text-white-50">
+                                A chatroom to ask and answer programming related questions. Created with two of my
+                                classmates.<br> Technologies: Express, Node, Passport
+                                <br><a href="https://github.com/c0dezer019/404AnswerNotFound">App</a>
+                                </p>
+                                <hr class="d-none d-lg-block mb-0 mr-0" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                <div class="col-lg-6"><img class="img-fluid" src="assets/img/spotify.png" alt="Spotify Player photo" />
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left">
+                                <h4 class="text-white">Spotify Player</h4>
+                                <br class="mb-0 text-white-50">A fully responsive react application that displays your
+                                Spotify songs in realtime using implicit authorization.
+                                My goal was to implement this Spotify player as a smart mirror widget. <br>
+                                Technologies: React, HTML, CSS
+                                <br> <a href="https://github.com/calebafework/Spotify-Player">App</a>
+                                </p>
+                                <hr class="d-none d-lg-block mb-0 ml-0" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Signup-->
+    <section class="signup-section" id="signup">
+
+    </section>
+    <!-- Contact-->
+    <section class="contact-section bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-envelope text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Email</h4>
+                            <hr class="my-4" />
+                            <div class="small text-black-50"><a
+                                    href="mailto: calebafework@gmail.com">calebafework@gmail.com</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Phone</h4>
+                            <hr class="my-4" />
+                            <div class="small text-black-50">+1 (678) 852-4887</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-download text-primary mb-2"></i>
+                            <h4 class="text-uppercase m-0">Download Resume</h4>
+                            <hr class="my-4" />
+                            <div class="small text-black-50">
+                                <a href="assets/CalebAfework2024Resume.docx" download="Caleb Afework Resume">Resume</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social d-flex justify-content-center">
+                <a class="mx-2" href="https://www.linkedin.com/in/caleb-afework-8103921b9/"><i
+                        class="fab fa-linkedin"></i></a>
+                <a class="mx-2" href="https://www.instagram.com/calebc0des/"><i class="fab fa-instagram"></i></a>
+                <a class="mx-2" href="https://github.com/calebafework"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="footer bg-black small text-center text-white-50">
+        <div class="container">Copyright © CalebC0des 2024</div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="..\js\scripts.js"></script>
+    <script src="..\js\ctf.js"></script>
+</body>
+
+</html>

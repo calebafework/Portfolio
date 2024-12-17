@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Challenges</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .challenge {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .completed {
+            background-color: #d4edda;
+        }
+    </style>
+</head>
+<body>
+    <h1>CTF Challenges</h1>
+    <p>Complete all challenges to win! Your progress will be tracked below.</p>
+    <div id="score">Score: 0/4</div>
+
+    <!-- XSS Challenge -->
+    <div class="challenge" id="challenge-xss">
+        <h2>Problem One</h2>
+        <p>Type something into the box,
+            What shows up might seem plain.
+            But add some code, just a twist,
+            And watch it play a trick again!
+            Hint: Try adding something that runs code, not just text.
+        </p>
+        <form id="xss-form">
+            <input type="text" id="xss-input" placeholder="Your comment">
+            <button type="submit">Submit</button>
+        </form>
+        <div id="xss-output"></div>
+    </div>
+
+    <!-- SQL Injection Challenge -->
+    <div class="challenge" id="challenge-sql">
+        <h2>Problem Two(Simulated)</h2>
+        <p>The login asks for a name and a key,
+            But what if you’re clever with what they see?
+            A little trick, a clever phrase,
+            Can make the system give you its ways.
+            Hint: Try using a special phrase that tricks the database.
+        </p>
+        <form id="sql-form">
+            <input type="text" id="sql-username" placeholder="Username">
+            <input type="password" id="sql-password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+        <div id="sql-output"></div>
+    </div>
+
+    <!-- Clickjacking Challenge -->
+    <div class="challenge" id="challenge-clickjacking">
+        <h2>Problem Three</h2>
+        <p>This button seems easy, just give it a tap,
+            But is there more hidden beneath this trap?
+            Look closely and see what’s tied to the click,
+            It might do something else, and that’s the trick!
+            Hint: Think about what might happen if a button isn't what it seems.</p>
+        <div style="position: relative;">
+            <iframe src="about:blank" style="opacity: 0.01; pointer-events: none; width: 300px; height: 100px; border: none; position: absolute;"></iframe>
+            <button id="clickjacking-button">Click Me</button>
+        </div>
+    </div>
+
+    <!-- Open Redirect Challenge -->
+    <div class="challenge" id="challenge-redirect">
+        <h2>Problem Four</h2>
+        <p>A link leads you to where it should go,
+            But what if it’s tricked, and you don’t know?
+            Check where it sends you, be on guard,
+            A small change can lead you somewhere bizarre.
+            Hint: Pay attention to where the link actually goes.</p>
+        <a id="redirect-link" href="?redirect=http://example.com">Redirect me!</a>
+    </div>
+
+    <script>
+        const challenges = {
+            xss: false,
+            sql: false,
+            clickjacking: false,
+            redirect: false,
+        };
+
+        function updateScore() {
+            const score = Object.values(challenges).filter(Boolean).length;
+            document.getElementById('score').textContent = `Score: ${score}/4`;
+
+            if (score === 4) {
+                alert('Congratulations! You completed all challenges!');
+                const link = document.createElement('a');
+                link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent('CTF{all_challenges_completed}');
+                link.download = 'flag.txt';
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+
+        // XSS Challenge
+        document.getElementById('xss-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const input = document.getElementById('xss-input').value;
+            document.getElementById('xss-output').innerHTML = input;
+            if (input.includes('<script>')) {
+                challenges.xss = true;
+                document.getElementById('challenge-xss').classList.add('completed');
+                updateScore();
+            }
+        });
+
+        // SQL Injection Challenge
+        document.getElementById('sql-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('sql-username').value;
+            const password = document.getElementById('sql-password').value;
+            if (username === 'admin' && password.includes("' OR 1=1 --")) {
+                document.getElementById('sql-output').textContent = 'Login successful!';
+                challenges.sql = true;
+                document.getElementById('challenge-sql').classList.add('completed');
+                updateScore();
+            } else {
+                document.getElementById('sql-output').textContent = 'Invalid credentials.';
+            }
+        });
+
+        // Clickjacking Challenge
+        document.getElementById('clickjacking-button').addEventListener('click', function () {
+            challenges.clickjacking = true;
+            document.getElementById('challenge-clickjacking').classList.add('completed');
+            updateScore();
+        });
+
+        // Open Redirect Challenge
+        const params = new URLSearchParams(window.location.search);
+        const redirect = params.get('redirect');
+        if (redirect === 'http://flag.com') {
+            challenges.redirect = true;
+            document.getElementById('challenge-redirect').classList.add('completed');
+            updateScore();
+        }
+
+        updateScore();
+    </script>
+</body>
+</html>
