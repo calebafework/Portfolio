@@ -66,9 +66,8 @@
     <!-- Projects-->
     <section class="projects-section bg-light" id="projects">
         <div class="container">
-            <!-- Featured Project Row-->
-            <div class="row align-items-center no-gutters mb-4 mb-lg-5 challenge"  id="challenge-xss">
-                <!-- First Section -->
+            <!-- Featured Project Row -->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5 challenge" id="challenge-xss">
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
                         <h4>Problem One</h4>
@@ -85,37 +84,37 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-10 col-lg-8 mx-auto text-center">
-                                <h4 class="text-black mb-5">Input</h4>
-                                <form class="form-inline d-flex" id="xss-form">
-                                    <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="xss-input" type="text" placeholder="Enter email address..." />
-                                    <button class="btn btn-primary mx-auto" type="submit">Send</button>
+                                <form id="xss-form" class="form-inline d-flex">
+                                    <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="xss-input" type="text" placeholder="Your comment">
+                                    <button class="btn btn-primary mx-auto" type="submit">Submit</button>
                                 </form>
+                                <!-- Feedback Output -->
+                                <p id="xss-output" class="text-black-50 mt-3"></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="row align-items-center no-gutters mb-4 mb-lg-5" id="Two">
-                <!-- Second Section -->
+            <!-- SQL Injection Challenge -->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5 challenge" id="challenge-sql">
                 <div class="col-xl-8 col-lg-7">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-10 col-lg-8 mx-auto text-center">
-                                    <h4 class="text-black mb-5"></h4>
-                                    <form class="form-inline d-flex">
-                                        <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="email" placeholder="Enter email address..." />
-                                        <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="email" placeholder="Enter email address..." />
-                                        <button class="btn btn-primary mx-auto" type="submit">Subscribe</button>
-                                    </form>
-                                </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 col-lg-8 mx-auto text-center">
+                                <form id="sql-form" class="form-inline d-flex">
+                                    <input class="form-control flex-fill mr-2 mb-3 mb-sm-0" id="sql-username" type="text" placeholder="Username">
+                                    <input class="form-control flex-fill mr-2 mb-3 mb-sm-0" id="sql-password" type="password" placeholder="Password">
+                                    <button class="btn btn-primary mx-auto" type="submit">Login</button>
+                                </form>
+                                <!-- Feedback Output -->
+                                <p id="sql-output" class="text-black-50 mt-3"></p>
                             </div>
                         </div>
-                    
+                    </div>
                 </div>
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
-                        <h4>Problem Two(Simulated)</h4>
+                        <h4>Problem Two (Simulated)</h4>
                         <p class="text-black-50 mb-0">
                             The login asks for a name and a key,
                             But what if you’re clever with what they see?
@@ -126,31 +125,37 @@
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center no-gutters mb-4 mb-lg-5" id="Three">
-                <!-- First Section -->
+            <!-- Email OSINT Challenge -->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5 challenge" id="challenge-email-osint">
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
                         <h4>Problem Three</h4>
                         <p class="text-black-50 mb-0">
-                            This button seems easy, just give it a tap,
-                            But is there more hidden beneath this trap?
-                            Look closely and see what’s tied to the click,
-                            It might do something else, and that’s the trick!
-                            Hint: Think about what might happen if a button isn't what it seems.
+                            An email might seem ordinary to see,
+                            But hidden in plain sight is the key!
+                            Inspect, analyze, and verify with care,
+                            The truth of this email is hidden somewhere.
+                            Hint: Think about verifying its authenticity.
                         </p>
                     </div>
                 </div>
-                <div class="col-xl-8 col-lg-7">
-                    <!-- <a href="https://foundation.blacksintechnology.net/">
-                        <img class="img-fluid mb-3 mb-lg-0" src="assets/img/bitdenver.png" alt="Blacks in Technology Denver Chapter" />
-                    </a> -->
+                <div class="col-xl-8 col-lg-7 text-center">
+                    <input type="email" id="email-osint-input" class="form-control mb-2" placeholder="Enter the email" required />
+                    <!-- <input type="email" id="email-osint-input" class="form-control mb-2" placeholder="Enter the email" required /> -->
+                    <button id="email-osint-button" class="btn btn-primary">Submit Email</button>
+                    <!-- Feedback Output -->
+                    <p id="email-osint-output" class="text-black-50 mt-3"></p>
                 </div>
             </div>
-            
-            <div class="row align-items-center no-gutters mb-4 mb-lg-5" id="Four">
-                <!-- Second Section -->
-                <!-- <div class="col-xl-8 col-lg-7">
-                </div> -->
+        
+            <!-- Open Redirect Challenge -->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5 challenge" id="challenge-redirect">
+                <div class="col-xl-8 col-lg-7 text-center">
+                    <!-- Redirect Button -->
+                    <button id="redirect-button" class="btn btn-primary">Redirect me!</button>
+                    <!-- Feedback Output -->
+                    <p id="redirect-output" class="text-black-50 mt-3"></p>
+                </div>
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
                         <h4>Problem Four</h4>
@@ -164,6 +169,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        
 
             <!-- Project One Row-->
             <!-- <h2>Projects</h2>
@@ -246,7 +253,7 @@
                             <h4 class="text-uppercase m-0">Email</h4>
                             <hr class="my-4" />
                             <div class="small text-black-50"><a
-                                    href="mailto: calebafework@gmail.com">calebafework@gmail.com</a></div>
+                                    href="mailto: fake@gmail.com">caleparfework@gmail.com</a></div>
                         </div>
                     </div>
                 </div>

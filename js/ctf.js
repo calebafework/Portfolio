@@ -65,17 +65,26 @@ document.getElementById('sql-form').addEventListener('submit', function (e) {
 });
 
 
-// Clickjacking Challenge
-document.getElementById('clickjacking-button').addEventListener('click', function () {
-    const clickjackingOutput = document.getElementById('clickjacking-output'); // Output feedback element
-    if (!challenges.clickjacking) {
-        clickjackingOutput.textContent = '🎉 Clickjacking successful!';
-        challenges.clickjacking = true;
-        document.getElementById('challenge-clickjacking').classList.add('completed');
-        updateScore();
+//Email OSINT Challenge
+document.getElementById('email-osint-button').addEventListener('click', function () {
+    const emailInput = document.getElementById('email-osint-input').value.trim();
+    const emailOutput = document.getElementById('email-osint-output'); // Output feedback element
+
+    const correctEmail = 'calebafework@gmail.com'; 
+
+    if (emailInput === correctEmail) {
+        if (!challenges.emailOsint) {
+            emailOutput.textContent = '🎉 Email OSINT successful!';
+            challenges.emailOsint = true;
+            document.getElementById('challenge-email-osint').classList.add('completed');
+            updateScore();
+        } else {
+            emailOutput.textContent = '🚫 You already completed this challenge.';
+        }
     } else {
-        clickjackingOutput.textContent = '🚫 You already completed this challenge.';
+        emailOutput.textContent = `🚫 Invalid email: ${emailInput || 'None'}. Try again.`;
     }
+
 });
 
 // Open Redirect Challenge
