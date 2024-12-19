@@ -15,10 +15,10 @@ function updateScore() {
     document.getElementById('score').textContent = `Score: ${score}/4`;
 
     if (score === 4) {
-        alert('Congratulations! You completed all challenges!');
+        alert('Congratulations! You completed all challenges and stopped the hackers! As a reward, take this resume!');
         const link = document.createElement('a');
-        link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent('CTF{all_challenges_completed}');
-        link.download = '..\assets\CalebAfework2024Resume.docx';
+        link.href = '../assets/CalebAfework2024Resume.docx';
+        link.download = 'CalebAfework2024Resume.docx';
         link.style.display = 'none';
         document.body.appendChild(link);
         link.click();
