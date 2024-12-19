@@ -18,7 +18,7 @@ function updateScore() {
         alert('Congratulations! You completed all challenges!');
         const link = document.createElement('a');
         link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent('CTF{all_challenges_completed}');
-        link.download = '..\\assets\\CalebAfework2024Resume.docx';
+        link.download = '..\assets\CalebAfework2024Resume.docx';
         link.style.display = 'none';
         document.body.appendChild(link);
         link.click();
@@ -89,10 +89,6 @@ document.getElementById('email-osint-button').addEventListener('click', function
 
 // Open Redirect Challenge
 document.getElementById('redirect-button').addEventListener('click', function () {
-    const newRedirect = '?redirect=http://example.com'; // Simulated new URL
-    history.pushState(null, '', newRedirect); // Update URL without navigation
-
-    // Re-parse URL parameters after updating the URL
     const params = new URLSearchParams(window.location.search);
     const redirect = params.get('redirect');
     const redirectOutput = document.getElementById('redirect-output'); // Output feedback element
