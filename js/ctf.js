@@ -17,7 +17,7 @@ function updateScore() {
     if (score === 4) {
         alert('Congratulations! You completed all challenges and stopped the hackers! As a reward, take this resume!');
         const link = document.createElement('a');
-        link.href = '../assets/CalebAfework2024Resume.docx';
+        link.href = '../assets/CalebAfework2025Resume.docx';
         link.download = 'CalebAfework2024Resume.docx';
         link.style.display = 'none';
         document.body.appendChild(link);
